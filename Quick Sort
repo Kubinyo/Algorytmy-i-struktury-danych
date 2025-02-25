@@ -1,0 +1,17 @@
+from random import randint
+
+def quick_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    
+    pivot = arr[randint(0, len(arr) - 1)]  # Losowy wybór pivota
+    left = [x for x in arr if x < pivot]   # Elementy mniejsze od pivota
+    middle = [x for x in arr if x == pivot] # Elementy równe pivotowi
+    right = [x for x in arr if x > pivot]  # Elementy większe od pivota
+    
+    return quick_sort(left) + middle + quick_sort(right)
+
+# Przykład użycia
+numbers = [3.5, 1.2, 4.8, 2.9, 0.5, 3.3, 4.8, 2.1]
+sorted_numbers = quick_sort(numbers)
+print(sorted_numbers)
